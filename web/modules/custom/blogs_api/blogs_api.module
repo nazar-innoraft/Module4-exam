@@ -1,0 +1,16 @@
+<?php
+
+function blogs_api_cron() {
+
+  $storage_handler = \Drupal::entityTypeManager()->getStorage('node');
+  $query = \Drupal::entityQuery('node')->accessCheck(FALSE)
+    ->condition('created', strtotime('-2 week'), '<=')
+    ->range(0, 30);
+  $result = $query->execute();
+  if (!empty($result)) {
+    $nids = array_keys($result);
+    $nodes = $storage_handler->loadMultiple($nids);
+    $storage_handler->delete($nodes);
+  }
+  \Drupal::messenger()->addMessage('Helllo Nazar');
+}

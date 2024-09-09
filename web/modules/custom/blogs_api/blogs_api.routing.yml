@@ -1,0 +1,7 @@
+blogs_api.example:
+  path: '/blog-api'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\blogs_api\Controller\BlogsApiController'
+  requirements:
+    _permission: 'access content'
