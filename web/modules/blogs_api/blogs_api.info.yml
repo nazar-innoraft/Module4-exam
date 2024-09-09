@@ -1,0 +1,5 @@
+name: 'Blogs Api'
+type: module
+description: 'Blogs api page'
+package: Nazar
+core_version_requirement: ^10 || ^11
